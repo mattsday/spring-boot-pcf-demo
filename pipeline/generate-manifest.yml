@@ -10,7 +10,7 @@ inputs:
 - name: git-assets
 
 outputs:
-- name: app-manifest-output
+- name: manifest-output
 
 run:
   path: git-assets/pipeline/generate-manifest.sh
