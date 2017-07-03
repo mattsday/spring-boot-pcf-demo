@@ -16,7 +16,7 @@ resources:
     skip_cert_check: false
 
 jobs:
-- name: build-artifact
+- name: build-and-deploy
   serial: true
   plan:
   - get: git-assets
@@ -24,16 +24,6 @@ jobs:
   - task: mvn-package
     privileged: true
     file: git-assets/pipeline/package.yml
-
-- name: deploy-app
-  serial: true
-  public: true
-  serial_groups: [version]
-  plan:
-  - get: git-assets
-    trigger: true
-    passed:
-    - build-artifact
   - task: generate-manifest
     file: git-assets/pipeline/generate-manifest.yml
     params:

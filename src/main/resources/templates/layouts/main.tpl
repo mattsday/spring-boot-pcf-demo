@@ -15,7 +15,7 @@ html {
                              li(role: 'presentation', class: 'active') { a(href:'/', 'Home') }
                         }
                 }
-                h3(class: 'text-muted', 'HSBC')
+                h3(class: 'text-muted', 'CloudFoundry')
             }
 
             mainBody()
