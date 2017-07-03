@@ -13,4 +13,4 @@ outputs:
 - name: app-manifest-output
 
 run:
-path: git-assets/pipeline/generate-manifest.sh
+  path: git-assets/pipeline/generate-manifest.sh
