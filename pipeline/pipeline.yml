@@ -1,0 +1,51 @@
+resources:
+- name: git-assets
+  type: git
+  source:
+    uri: https://github.com/mattsday/spring-boot-pcf-demo
+    branch: ((demo-branch))
+
+- name: PCF
+  type: cf
+  source:
+    api: ((pcf-api))
+    username: ((pcf-username))
+    password: ((pcf-password))
+    organization: ((pcf-org))
+    space: ((pcf-space))
+    skip_cert_check: false
+
+jobs:
+- name: build-artifact
+  serial: true
+  plan:
+  - get: git-assets
+    trigger: true
+  - task: mvn-package
+    privileged: true
+    file: git-assets/pipeline/package.yml
+
+- name: create-manifest
+  serial: true
+  plan:
+  - get: git-assets
+
+    
+
+- name: deploy-app
+  serial: true
+  public: true
+  serial_groups: [version]
+  plan:
+  - get: git-assets
+    trigger: true
+    passed:
+    - build-artifact
+  - task: generate-manifest
+    file: git-assets/pipeline/generate-manifest.yml
+    params:
+        APP_PACKAGE=git-assets/target/demo-0.0.1-SNAPSHOT.jar
+  - put: PCF
+    params:
+      manifest: git-assets/manifest.yml
+
