@@ -8,6 +8,7 @@ image_resource:
 
 inputs:
 - name: git-assets
+- name: mvn-package-output
 
 outputs:
 - name: manifest-output
