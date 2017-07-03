@@ -1,0 +1,9 @@
+services:
+  demo: '{"cleardb":[{"credentials":{"jdbcUrl":"jdbc:mysql://localhost","uri":"mysql://localhost","name":"demoDB","hostname":"localhost","port":"3306","username":"demo_db","password":"keepitsimple"},"volume_mounts":[],"label":"p-mysql","plan":"spark","name":"demoDB","tags":["Cloud
+    Databases","Data Stores","Web-based","Online Backup & Storage","Single Sign-On","Cloud
+    Security and Monitoring","Certified Applications","Developer Tools","Data Store","Development
+    and Test Tools","Buyable","relational","mysql"]}],"cloudamqp":[{"credentials":{"uri":"amqp://gdkshcin:F2nwJ_GfSxw0qg1mV7sIS3OhGqF87OpR@fish.rmq.cloudamqp.com/gdkshcin","http_api_uri":"https://gdkshcin:F2nwJ_GfSxw0qg1mV7sIS3OhGqF87OpR@fish.rmq.cloudamqp.com/api/"},"volume_mounts":[],"label":"p-rabbitmq","plan":"standard","name":"demoMQ","tags":["Customer
+    Service","Web-based","User Provisioning","Messaging and Queuing","IT Service Management","amqp","Backup","Online
+    Backup & Storage","Single Sign-On","Cloud Security and Monitoring","New Product","rabbitmq","Android","Certified
+    Applications","Developer Tools","Cloud Deployment & Management","Development and
+    Test Tools","Buyable","Messaging","Importable","IT Management"]}]}'

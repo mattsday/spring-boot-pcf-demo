@@ -1,0 +1,7 @@
+---
+applications:
+- name: demo-mday
+  memory: 1024M
+  buildpack: java_buildpack
+  routes:
+  - route: demo-mday.cfapps.io
