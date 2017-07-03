@@ -40,5 +40,5 @@ jobs:
         APP_PACKAGE: mvn-package-output/demo-0.0.1-SNAPSHOT.jar
   - put: PCF
     params:
-      manifest: ./manifest-output/manifest.yml
+      manifest: manifest-output/manifest.yml
 
