@@ -1,4 +1,4 @@
-alatform: linux
+platform: linux
 
 image_resource:
   type: docker-image
