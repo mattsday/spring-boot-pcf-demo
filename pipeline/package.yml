@@ -1,4 +1,4 @@
-platform: linux
+alatform: linux
 
 image_resource:
   type: docker-image
@@ -7,10 +7,10 @@ image_resource:
     tag: latest
 
 inputs:
-  - name: branch-dev
+  - name: git-assets 
 outputs:
   - name: mvn-package-output
 
 run:
   path: "mvn"
-  args: ["-f", "pom.xml", "package"]
+  args: ["-f", "git-assets/pom.xml", "package"]

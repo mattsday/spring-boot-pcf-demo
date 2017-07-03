@@ -44,7 +44,7 @@ jobs:
   - task: generate-manifest
     file: git-assets/pipeline/generate-manifest.yml
     params:
-        APP_PACKAGE=git-assets/target/demo-0.0.1-SNAPSHOT.jar
+        APP_PACKAGE: git-assets/target/demo-0.0.1-SNAPSHOT.jar
   - put: PCF
     params:
       manifest: git-assets/manifest.yml
