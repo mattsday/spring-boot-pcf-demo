@@ -12,5 +12,4 @@ outputs:
   - name: mvn-package-output
 
 run:
-  path: "mvn"
-  args: ["-f", "git-assets/pom.xml", "package"]
+  path: git-assets/pipeline/package.sh
