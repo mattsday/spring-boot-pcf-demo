@@ -25,13 +25,6 @@ jobs:
     privileged: true
     file: git-assets/pipeline/package.yml
 
-- name: create-manifest
-  serial: true
-  plan:
-  - get: git-assets
-
-    
-
 - name: deploy-app
   serial: true
   public: true
