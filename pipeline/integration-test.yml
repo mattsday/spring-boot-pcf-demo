@@ -1,0 +1,20 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: pivotalservices/docker-concourse-cf-tools
+    tag: "latest"
+
+inputs:
+- name: git-assets
+- name: app-colour
+
+outputs:
+- name: integration-test
+
+run:
+  path: git-assets/pipeline/integration-test.sh
+  
+  
