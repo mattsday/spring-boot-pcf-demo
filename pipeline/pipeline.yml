@@ -3,7 +3,7 @@ resources:
   type: git
   source:
     uri: https://github.com/mattsday/spring-boot-pcf-demo
-    branch: ((demo-branch))
+    branch: master
     
 - name: release
   type: s3
