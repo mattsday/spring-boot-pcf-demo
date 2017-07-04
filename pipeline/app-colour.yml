@@ -14,4 +14,6 @@ outputs:
 - name: app-colour
 
 run:
-path: git-assets/pipeline/app-colour.sh
+  path: git-assets/pipeline/app-colour.sh
+  
+  

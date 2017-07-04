@@ -15,4 +15,4 @@ outputs:
 - name: app-route
 
 run:
-path: git-assets/pipeline/update-route.sh
+  path: git-assets/pipeline/update-route.sh
