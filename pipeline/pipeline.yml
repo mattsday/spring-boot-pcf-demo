@@ -51,7 +51,7 @@ jobs:
     passed:
     - build-artifact
   - task: get-current-app-color
-    file: git-assets/ci/tasks/current-app-get-info.yml
+    file: git-assets/pipeline/app-colour.yml
     params:
       CF_APP: demo-mday
       CF_APP_DOMAIN: ((cf-app-domain))
