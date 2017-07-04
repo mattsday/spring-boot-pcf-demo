@@ -50,6 +50,16 @@ jobs:
     trigger: true
     passed:
     - build-artifact
+  - task: get-current-app-color
+    file: git-assets/ci/tasks/current-app-get-info.yml
+    params:
+      CF_APP: demo-mday
+      CF_APP_DOMAIN: ((cf-app-domain))
+      CF_API: ((pcf-api))
+      CF_ORG: ((pcf-org))
+      CF_USER: ((pcf-username))
+      CF_PWD: ((pcf-password))
+      CF_SPACE: ((pcf-space))
   - task: generate-manifest
     file: git-assets/pipeline/generate-manifest.yml
     params:
