@@ -68,4 +68,33 @@ jobs:
     params:
       manifest: manifest-output/manifest.yml
 
-    
+- name: route-to-app
+  serial: true
+  public: true
+  plan:
+  - get: git-assets
+    trigger: true
+    passed:
+    - deploy-app
+  - task: get-current-app-color
+    file: git-assets/pipeline/app-colour.yml
+    params:
+      CF_APP: demo-mday
+      CF_APP_DOMAIN: ((cf-app-domain))
+      CF_API: ((pcf-api))
+      CF_ORG: ((pcf-org))
+      CF_USER: ((pcf-username))
+      CF_PWD: ((pcf-password))
+      CF_SPACE: ((pcf-space))
+  - task: switch-app-routes
+    file: git-assets/pipeline/update-route.yml
+    params:
+      CF_APP: demo-mday
+      CF_APP_DOMAIN: ((cf-app-domain))
+      CF_API: ((pcf-api))
+      CF_ORG: ((pcf-org))
+      CF_USER: ((pcf-username))
+      CF_PWD: ((pcf-password))
+      CF_SPACE: ((pcf-space))
+      
+      
