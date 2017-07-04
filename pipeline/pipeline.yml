@@ -3,7 +3,6 @@ resources:
   type: git
   source:
     uri: https://github.com/mattsday/spring-boot-pcf-demo
-    branch: master
     
 - name: release
   type: s3
@@ -47,7 +46,6 @@ jobs:
     passed:
     - build-artifact
   - get: release
-    trigger: true
     passed:
     - build-artifact
   - task: get-current-app-color
