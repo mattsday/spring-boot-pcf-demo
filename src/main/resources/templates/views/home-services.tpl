@@ -12,7 +12,7 @@ layout 'layouts/main.tpl',
 	table(class:'table table-striped'){
 		thead{
 			tr{
-				th('Name')
+				th('Name Name Name')
 				th('Type')
 				th('Plan')
 			}
