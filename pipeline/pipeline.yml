@@ -68,7 +68,7 @@ jobs:
     params:
       manifest: manifest-output/manifest.yml
 
-- name: route-to-app
+- name: deploy-to-production
   serial: true
   public: true
   plan:
