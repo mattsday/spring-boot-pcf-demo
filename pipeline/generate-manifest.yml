@@ -8,6 +8,7 @@ image_resource:
 
 inputs:
 - name: git-assets
+- name: release
 
 outputs:
 - name: manifest-output

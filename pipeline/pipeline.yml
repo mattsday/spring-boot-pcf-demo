@@ -34,7 +34,7 @@ jobs:
     file: git-assets/pipeline/package.yml
   - put: release
     params:
-      file: git-assets/target/demo-0.0.1-SNAPSHOT.jar
+      file: mvn-package-output/demo-0.0.1-SNAPSHOT.jar
       acl: public-read
       
 - name: deploy-app
