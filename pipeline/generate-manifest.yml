@@ -9,6 +9,7 @@ image_resource:
 inputs:
 - name: git-assets
 - name: release
+- name: app-colour
 
 outputs:
 - name: manifest-output

@@ -10,8 +10,7 @@ cf apps
 set +e
 
 export CURR_APP_COLOR=$(cf apps | grep "$CF_APP.$CF_APP_DOMAIN" | awk '{print $1}')
-if [[ $CURR_APP_COLOR =~ .*green.* ]]
-then
+if [[ $CURR_APP_COLOR =~ .*green.* ]]; then
   echo "green" > ./app-colour/current-app.txt
   echo "blue" > ./app-colour/next-deployment.txt
 else
