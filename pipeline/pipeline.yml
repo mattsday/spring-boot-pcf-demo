@@ -53,7 +53,7 @@ jobs:
   - task: get-current-app-color
     file: git-assets/pipeline/app-colour.yml
     params:
-      CF_APP: demo-mday
+      CF_APP: ((pcf-appname))
       CF_APP_DOMAIN: ((cf-app-domain))
       CF_API: ((pcf-api))
       CF_ORG: ((pcf-org))
@@ -79,8 +79,8 @@ jobs:
   - task: get-current-app-color
     file: git-assets/pipeline/app-colour.yml
     params:
-      CF_APP: demo-mday
-      CF_APP_DOMAIN: ((cf-app-domain))
+      CF_APP: ((pcf-appname))
+      CF_APP_DOMAIN: ((pcf-app-domain))
       CF_API: ((pcf-api))
       CF_ORG: ((pcf-org))
       CF_USER: ((pcf-username))
@@ -89,8 +89,8 @@ jobs:
   - task: switch-app-routes
     file: git-assets/pipeline/update-route.yml
     params:
-      CF_APP: demo-mday
-      CF_APP_DOMAIN: ((cf-app-domain))
+      CF_APP: ((pcf-appname))
+      CF_APP_DOMAIN: ((pcf-app-domain))
       CF_API: ((pcf-api))
       CF_ORG: ((pcf-org))
       CF_USER: ((pcf-username))
