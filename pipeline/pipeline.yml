@@ -53,9 +53,9 @@ jobs:
   - task: generate-manifest
     file: git-assets/pipeline/generate-manifest.yml
     params:
-      APP_PACKAGE: release/demo-0.0.1-SNAPSHOT.jar
+      APP_PACKAGE: ../release/demo-0.0.1-SNAPSHOT.jar
   - put: PCF
-    params: null
-    manifest: manifest-output/manifest.yml
+    params:
+      manifest: manifest-output/manifest.yml
 
     
