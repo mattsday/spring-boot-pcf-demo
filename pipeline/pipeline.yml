@@ -54,7 +54,7 @@ jobs:
     file: git-assets/pipeline/app-colour.yml
     params:
       CF_APP: ((pcf-appname))
-      CF_APP_DOMAIN: ((cf-app-domain))
+      CF_APP_DOMAIN: ((pcf-app-domain))
       CF_API: ((pcf-api))
       CF_ORG: ((pcf-org))
       CF_USER: ((pcf-username))
