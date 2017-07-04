@@ -4,7 +4,15 @@ resources:
   source:
     uri: https://github.com/mattsday/spring-boot-pcf-demo
     branch: ((demo-branch))
-
+    
+- name: release
+  type: s3
+  source:
+    bucket: ((aws-bucket-name))
+    regexp: ((aws-regexp))
+    access_key_id: ((aws-access-key))
+    secret_access_key: ((aws-secret-key))
+    
 - name: PCF
   type: cf
   source:
@@ -14,9 +22,9 @@ resources:
     organization: ((pcf-org))
     space: ((pcf-space))
     skip_cert_check: false
-
+    
 jobs:
-- name: build-and-deploy
+- name: build-artifact
   serial: true
   plan:
   - get: git-assets
@@ -24,11 +32,27 @@ jobs:
   - task: mvn-package
     privileged: true
     file: git-assets/pipeline/package.yml
+  - put: release
+    params:
+      file: git-assets/target/demo-0.0.1-SNAPSHOT.jar
+      acl: public-read
+      
+- name: deploy-app
+  serial: true
+  public: true
+  plan:
+  - get: git-assets
+    trigger: true
+    passed:
+    - build-artifact
+  - get: release
+    trigger: true
+    passed:
+    - build-artifact
   - task: generate-manifest
     file: git-assets/pipeline/generate-manifest.yml
     params:
-        APP_PACKAGE: mvn-package-output/demo-0.0.1-SNAPSHOT.jar
+      APP_PACKAGE: release/demo-0.0.1-SNAPSHOT.jar
   - put: PCF
-    params:
-      manifest: manifest-output/manifest.yml
-
+    params: null
+manifest: manifest-output/manifest.yml
