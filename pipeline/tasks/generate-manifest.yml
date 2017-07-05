@@ -1,4 +1,3 @@
----
 platform: linux
 
 image_resource:
@@ -9,12 +8,11 @@ image_resource:
 
 inputs:
 - name: git-assets
+- name: release
 - name: app-colour
 
 outputs:
-- name: integration-test
+- name: manifest-output
 
 run:
-  path: git-assets/pipeline/integration-test.sh
-  
-  
+  path: git-assets/pipeline/scripts/generate-manifest.sh

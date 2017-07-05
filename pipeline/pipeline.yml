@@ -31,7 +31,7 @@ jobs:
     trigger: true
   - task: mvn-package
     privileged: true
-    file: git-assets/pipeline/package.yml
+    file: git-assets/pipeline/tasks/package.yml
   - put: release
     params:
       file: mvn-package-output/demo-0.0.1-SNAPSHOT.jar
@@ -49,7 +49,7 @@ jobs:
     passed:
     - build-artifact
   - task: get-current-app-color
-    file: git-assets/pipeline/app-colour.yml
+    file: git-assets/pipeline/tasks/app-colour.yml
     params:
       CF_APP: ((pcf-appname))
       CF_APP_DOMAIN: ((pcf-app-domain))
@@ -59,7 +59,7 @@ jobs:
       CF_PWD: ((pcf-password))
       CF_SPACE: ((pcf-space))
   - task: generate-manifest
-    file: git-assets/pipeline/generate-manifest.yml
+    file: git-assets/pipeline/tasks/generate-manifest.yml
     params:
       CF_APP: ((pcf-appname))
       APP_PACKAGE: ../release/demo-0.0.1-SNAPSHOT.jar
@@ -76,7 +76,7 @@ jobs:
     passed:
     - deploy-app
   - task: get-current-app-color
-    file: git-assets/pipeline/app-colour.yml
+    file: git-assets/pipeline/tasks/app-colour.yml
     params:
       CF_APP: ((pcf-appname))
       CF_APP_DOMAIN: ((pcf-app-domain))
@@ -86,7 +86,7 @@ jobs:
       CF_PWD: ((pcf-password))
       CF_SPACE: ((pcf-space))
   - task: run-integration-tests
-    file: git-assets/pipeline/integration-test.yml
+    file: git-assets/pipeline/tasks/integration-test.yml
     params:
       CF_APP: ((pcf-appname))
       CF_APP_DOMAIN: ((pcf-app-domain))
@@ -100,7 +100,7 @@ jobs:
     passed:
     - integration-test
   - task: get-current-app-color
-    file: git-assets/pipeline/app-colour.yml
+    file: git-assets/pipeline/tasks/app-colour.yml
     params:
       CF_APP: ((pcf-appname))
       CF_APP_DOMAIN: ((pcf-app-domain))
@@ -110,7 +110,7 @@ jobs:
       CF_PWD: ((pcf-password))
       CF_SPACE: ((pcf-space))
   - task: switch-app-routes
-    file: git-assets/pipeline/update-route.yml
+    file: git-assets/pipeline/tasks/update-route.yml
     params:
       CF_APP: ((pcf-appname))
       CF_APP_DOMAIN: ((pcf-app-domain))

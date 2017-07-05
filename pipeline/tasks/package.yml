@@ -12,4 +12,4 @@ outputs:
   - name: mvn-package-output
 
 run:
-  path: git-assets/pipeline/package.sh
+  path: git-assets/pipeline/scripts/package.sh
