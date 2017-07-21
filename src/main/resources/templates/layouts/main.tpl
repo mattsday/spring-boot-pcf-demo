@@ -5,6 +5,8 @@ html {
         title(pageTitle)
         meta(name: 'viewport', content:'width=device-width, initial-scale=1')
         link(rel: 'stylesheet', href: '/webjars/bootstrap/css/bootstrap.min.css')
+        script(src: '/webjars/jquery/jquery.min.js') { }
+        script(src: '/webjars/bootstrap/js/bootstrap.min.js') { }
     }
 
     body {
@@ -22,9 +24,5 @@ html {
 
 
         }
-
-        script(src: '/webjars/jqueryjquery.min.js') { }
-        script(src: '/webjars/bootstrap/js/bootstrap.min.js') { }
-
-    }
+   }
 }
