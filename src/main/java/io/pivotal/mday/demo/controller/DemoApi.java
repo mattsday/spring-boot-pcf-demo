@@ -25,10 +25,6 @@ public class DemoApi {
 	@Value("${services.demo}")
 	private String vcapServicesDemo;
 
-	public DemoApi() {
-
-	}
-
 	@RequestMapping("/")
 	public ModelAndView home() throws JsonProcessingException, IOException {
 
