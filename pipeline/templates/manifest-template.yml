@@ -4,4 +4,4 @@ applications:
   memory: 1024M
   buildpack: java_buildpack
   path: APPPATH
-services: [ demoDB, demoMQ ]
+services: [ APPSERVICES ]
