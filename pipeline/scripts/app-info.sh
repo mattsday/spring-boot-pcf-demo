@@ -1,4 +1,5 @@
 #!/bin/bash
+# Get a load of info about an app including its current scale, services and colour (blue or green)
 
 set -xe
 
