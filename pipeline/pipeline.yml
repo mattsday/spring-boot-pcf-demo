@@ -48,7 +48,7 @@ jobs:
   - get: release
     passed:
     - build-artifact
-  - task: get-current-app-color
+  - task: get-current-app-colour
     file: git-assets/pipeline/tasks/app-colour.yml
     params:
       CF_APP: ((pcf-appname))
@@ -85,7 +85,7 @@ jobs:
     trigger: true
     passed:
     - deploy-app
-  - task: get-current-app-color
+  - task: get-current-app-colour
     file: git-assets/pipeline/tasks/app-colour.yml
     params:
       CF_APP: ((pcf-appname))
@@ -109,7 +109,7 @@ jobs:
     trigger: true
     passed:
     - integration-test
-  - task: get-current-app-color
+  - task: get-current-app-colour
     file: git-assets/pipeline/tasks/app-colour.yml
     params:
       CF_APP: ((pcf-appname))
