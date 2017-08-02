@@ -48,18 +48,8 @@ jobs:
   - get: release
     passed:
     - build-artifact
-  - task: get-current-app-colour
-    file: git-assets/pipeline/tasks/app-colour.yml
-    params:
-      CF_APP: ((pcf-appname))
-      CF_APP_DOMAIN: ((pcf-app-domain))
-      CF_API: ((pcf-api))
-      CF_ORG: ((pcf-org))
-      CF_USER: ((pcf-username))
-      CF_PWD: ((pcf-password))
-      CF_SPACE: ((pcf-space))
-  - task: get-current-app-services
-    file: git-assets/pipeline/tasks/app-services.yml
+  - task: get-app-info
+    file: git-assets/pipeline/tasks/app-info.yml
     params:
       CF_APP: ((pcf-appname))
       CF_APP_DOMAIN: ((pcf-app-domain))
@@ -85,8 +75,8 @@ jobs:
     trigger: true
     passed:
     - deploy-app
-  - task: get-current-app-colour
-    file: git-assets/pipeline/tasks/app-colour.yml
+  - task: get-app-info
+    file: git-assets/pipeline/tasks/app-info.yml
     params:
       CF_APP: ((pcf-appname))
       CF_APP_DOMAIN: ((pcf-app-domain))
@@ -109,8 +99,8 @@ jobs:
     trigger: true
     passed:
     - integration-test
-  - task: get-current-app-colour
-    file: git-assets/pipeline/tasks/app-colour.yml
+  - task: get-app-info
+    file: git-assets/pipeline/tasks/app-info.yml
     params:
       CF_APP: ((pcf-appname))
       CF_APP_DOMAIN: ((pcf-app-domain))

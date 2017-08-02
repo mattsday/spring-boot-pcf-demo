@@ -2,7 +2,7 @@
 
 set -xe
 
-export NEXT_APP_COLOUR=$(cat ./app-colour/next-deployment.txt)
+export NEXT_APP_COLOUR=$(cat ./app-info/next-deployment.txt)
 export NEXT_APP_URL=http://$CF_APP-$NEXT_APP_COLOUR.$CF_APP_DOMAIN/
 
 echo "Running integration test..."

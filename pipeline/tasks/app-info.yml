@@ -9,12 +9,11 @@ image_resource:
 
 inputs:
 - name: git-assets
-- name: app-colour
 
 outputs:
-- name: app-services
+- name: app-info
 
 run:
-  path: git-assets/pipeline/scripts/app-services.sh
+  path: git-assets/pipeline/scripts/app-info.sh
   
   

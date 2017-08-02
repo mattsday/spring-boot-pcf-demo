@@ -18,13 +18,13 @@ set +e
 cf routes
 
 # Map route to "next" app
-export NEXT_APP_COLOUR=$(cat ./app-colour/next-deployment.txt)
+export NEXT_APP_COLOUR=$(cat ./app-info/next-deployment.txt)
 echo "Mapping main app route to point to $NEXT_APP_COLOUR instance"
 cf map-route $CF_APP-$NEXT_APP_COLOUR $CF_APP_DOMAIN --hostname $CF_APP
 
 if [ $? = 0 ]; then
 	# Delete old App
-	export OLD_APP_COLOUR=$(cat ./app-colour/current-app.txt)
+	export OLD_APP_COLOUR=$(cat ./app-info/current-app.txt)
 	cf delete $CF_APP-$OLD_APP_COLOUR -f
 	echo "Apps and Routes updated"
 	cf apps

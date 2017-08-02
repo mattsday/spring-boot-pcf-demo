@@ -9,7 +9,7 @@ image_resource:
 
 inputs:
 - name: git-assets
-- name: app-colour
+- name: app-info
 
 outputs:
 - name: integration-test
