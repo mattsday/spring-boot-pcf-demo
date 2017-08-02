@@ -10,6 +10,7 @@ inputs:
 - name: git-assets
 - name: release
 - name: app-colour
+- name: app-services
 
 outputs:
 - name: manifest-output

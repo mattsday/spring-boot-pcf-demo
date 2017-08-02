@@ -58,6 +58,16 @@ jobs:
       CF_USER: ((pcf-username))
       CF_PWD: ((pcf-password))
       CF_SPACE: ((pcf-space))
+  - task: get-current-app-services
+    file: git-assets/pipeline/tasks/app-services.yml
+    params:
+      CF_APP: ((pcf-appname))
+      CF_APP_DOMAIN: ((pcf-app-domain))
+      CF_API: ((pcf-api))
+      CF_ORG: ((pcf-org))
+      CF_USER: ((pcf-username))
+      CF_PWD: ((pcf-password))
+      CF_SPACE: ((pcf-space))
   - task: generate-manifest
     file: git-assets/pipeline/tasks/generate-manifest.yml
     params:
