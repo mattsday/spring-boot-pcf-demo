@@ -17,7 +17,7 @@ html {
                              li(role: 'presentation', class: 'active') { a(href:'/', 'Home') }
                         }
                 }
-                h3(class: 'text-muted', 'Demo App New')
+                h3(class: 'text-muted', 'Demo App')
             }
 
             mainBody()
